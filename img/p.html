@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+.sample-text1 {
+    font-size: 20px;
+    font-weight: bold;
+    animation-name: fadein;
+    animation-duration: 2s;
+    /* animation-iteration-count: infinite; */
+}
+@keyframes fadein {
+from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+    </style>
+</head>
+<body style="margin: 0;">
+    <p class="sample-text1">下から上にススーっとフェードイン</p>
+    <img src="oheya-top.jpg" alt="" class="sample-text1">
+
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+       <script>
+          window.onload = function() {
+  scroll_effect();
+
+  $(window).scroll(function(){
+   scroll_effect();
+  });
+
+  function scroll_effect(){
+   $('.effect-fade').each(function(){
+    var elemPos = $(this).offset().top;
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height();
+    if (scroll > elemPos - windowHeight){
+     $(this).addClass('effect-scroll');
+    }
+   });
+  }
+};
+       </script>
+    
+    
+
+    
+</body>
+</html>
